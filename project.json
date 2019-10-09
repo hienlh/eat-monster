@@ -1,7 +1,12 @@
 {
-    "debugMode"     : 1,
-    "frameRate"     : 60,
-    "id"            : "gameCanvas",
-    "renderMode"    : 1,
-    "jsList"        : []
+    "debugMode": 1,
+    "frameRate": 60,
+    "id": "gameCanvas",
+    "renderMode": 0,
+    "jsList": [
+        "src/vars.js",
+        "src/resources.js",
+        "src/layers.js",
+        "src/scenes.js"
+    ]
 }
