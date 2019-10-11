@@ -1,9 +1,9 @@
-Game.res = {
-    HelloWorld_png: "HelloWorld.png"
+const res = {
+    hello_world_png: "res/HelloWorld.png",
+    background: "res/bg.png"
 };
 
-Game.g_resources = [];
-
-for (var i in Game.res) {
-    Game.g_resources.push(Game.res[i]);
+const g_resources = [];
+for (const i in res) {
+    g_resources.push(res[i]);
 }
