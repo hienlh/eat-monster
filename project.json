@@ -7,7 +7,11 @@
   "renderMode": 2,
   "id": "gameCanvas",
   "jsList": [
-    ".es5/game.js",
-    ".es5/resources.js"
+    ".es5/helps.js",
+    ".es5/monsterType.js",
+    ".es5/prefabs/childMonster.js",
+    ".es5/resources.js",
+    ".es5/scenes/game/gameScene.js",
+    ".es5/scenes/game/layers/mainLayer.js"
   ]
 }
