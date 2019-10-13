@@ -6,11 +6,17 @@
   "debugMode": 1,
   "renderMode": 2,
   "id": "gameCanvas",
+  "engineDir": "frameworks/",
+  "modules": [
+    "cocos2d"
+  ],
   "jsList": [
+    ".es5/config.js",
     ".es5/helps.js",
     ".es5/monsterType.js",
     ".es5/prefabs/childMonster.js",
     ".es5/resources.js",
+    ".es5/scenes/game/childLayer.js",
     ".es5/scenes/game/gameScene.js",
     ".es5/scenes/game/layers/mainLayer.js"
   ]

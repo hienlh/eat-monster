@@ -9,7 +9,7 @@ cc.game.onStart = function () {
     cc.view.adjustViewPort(true);
     
     // Uncomment the following line to set a fixed orientation for your game
-    // cc.view.setOrientation(cc.ORIENTATION_PORTRAIT);
+     cc.view.setOrientation(cc.ORIENTATION_PORTRAIT);
     
     // Setup the resolution policy and design resolution size
     cc.view.setDesignResolutionSize(1242, 2208, cc.ResolutionPolicy.EXACT_FIT);

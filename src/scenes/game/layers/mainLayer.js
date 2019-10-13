@@ -1,4 +1,5 @@
 const MainLayer = cc.Layer.extend({
+    listMonsters: [],
     ctor: function () {
         this._super();
         this._name = "Main Layer";
@@ -6,22 +7,28 @@ const MainLayer = cc.Layer.extend({
         
         const orange_monster = new ChildMonsterSprite(MonsterType.ORANGE);
         orange_monster.setPosition(MainMonsterPosition.BOTTOM);
+        orange_monster.setRotation(180);
         this.addChild(orange_monster);
+        this.listMonsters.push(orange_monster);
         
         const blue_monster = new ChildMonsterSprite(MonsterType.BLUE);
         blue_monster.setPosition(MainMonsterPosition.RIGHT);
+        blue_monster.setRotation(90);
         this.addChild(blue_monster);
+        this.listMonsters.push(blue_monster);
         
         const red_monster = new ChildMonsterSprite(MonsterType.RED);
         red_monster.setPosition(MainMonsterPosition.TOP);
         this.addChild(red_monster);
+        this.listMonsters.push(red_monster);
         
         const green_monster = new ChildMonsterSprite(MonsterType.GREEN);
         green_monster.setPosition(MainMonsterPosition.LEFT);
+        green_monster.setRotation(-90);
         this.addChild(green_monster);
+        this.listMonsters.push(green_monster);
         
         cc.eventManager.addListener(mainLayerEventListener.clone(), this);
-        console.log(this);
     }
 });
 
