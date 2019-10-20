@@ -17,6 +17,8 @@ const ChildMonsterSprite = cc.Sprite.extend({
                 break;
         }
         
+        this._name = 'Main [' + type + ` ${Math.random().toString(36).substr(2, 9)}]`;
+        
         this.initWithFile(imageFile);
     }
 });

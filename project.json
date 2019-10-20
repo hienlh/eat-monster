@@ -11,13 +11,18 @@
     "cocos2d"
   ],
   "jsList": [
+    ".es5/MaxPoint.js",
     ".es5/config.js",
-    ".es5/helps.js",
     ".es5/monsterType.js",
+    ".es5/pointManager.js",
     ".es5/prefabs/childMonster.js",
     ".es5/resources.js",
-    ".es5/scenes/game/childLayer.js",
     ".es5/scenes/game/gameScene.js",
-    ".es5/scenes/game/layers/mainLayer.js"
+    ".es5/scenes/game/layers/Group2MonstersLayer.js",
+    ".es5/scenes/game/layers/Group4MonstersLayer.js",
+    ".es5/scenes/game/layers/childLayer.js",
+    ".es5/scenes/game/layers/gameLayer.js",
+    ".es5/scenes/game/layers/gameOverLayer.js",
+    ".es5/scenes/menu/menuScene.js"
   ]
 }

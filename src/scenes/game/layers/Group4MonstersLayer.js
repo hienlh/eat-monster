@@ -1,9 +1,12 @@
-const MainLayer = cc.Layer.extend({
+const Group4MonstersLayer = cc.Layer.extend({
     listMonsters: [],
     ctor: function () {
         this._super();
-        this._name = "Main Layer";
+        this._name = "4 monsters Layer";
         this.setAnchorPoint(0, 0);
+        
+        this.listMonsters = [];
+        this.removeAllChildrenWithCleanup();
         
         const orange_monster = new ChildMonsterSprite(MonsterType.ORANGE);
         orange_monster.setPosition(MainMonsterPosition.BOTTOM);

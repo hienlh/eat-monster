@@ -1,9 +1,16 @@
 const GameScene = cc.Scene.extend({
     listMonsters: [],
-    mainLayer: null,
+    groupMonsterLayer: null, // group 4 or 2 monster at bottom game screen
+    isHardMode: false,
+    gameLayer: null,
+    gameOverLayer: null,
+    ctor: function (isHardMode) {
+        this._super();
+        this.isHardMode = isHardMode || false;
+    },
     onEnter: function () {
         this._super();
-        this.scheduleUpdate();
+        console.log('enter game');
         
         let size = cc.winSize;
         
@@ -13,59 +20,19 @@ const GameScene = cc.Scene.extend({
         bg.setContentSize(size.width, size.height);
         this.addChild(bg, 0);
         
-        // const label = cc.LabelTTF.create("Hello World", "Arial", 40);
-        // label.setPosition(size.width / 2, size.height / 2);
-        // label.setFontFillColor(new cc.Color(0, 0, 0, 250));
-        // this.addChild(label, 1);
+        this.gameLayer = new GameLayer(this.isHardMode, this.ate.bind(this), this.lost.bind(this));
+        this.addChild(this.gameLayer);
         
-        const mainLayer = new MainLayer();
-        mainLayer.setPosition(size.width / 2, 200);
-        mainLayer.setScale(1.5);
-        this.addChild(mainLayer, 2);
-        this.mainLayer = mainLayer;
+        this.gameOverLayer = new GameOverLayer(this.isHardMode);
+    },
+    ate: function () {
+        console.log('ate');
+    },
+    lost: function () {
+        console.log('lost');
         
-        this.spawnChild();
+        this.gameLayer.removeFromParent();
+        this.gameOverLayer.removeFromParent();
+        this.addChild(this.gameOverLayer);
     },
-    update: function (dt) {
-        this.listMonsters.forEach(child => {
-            this.mainLayer.listMonsters.forEach(main => {
-                let rectChild = child.monster.getBoundingBoxToWorld();
-                let rectMain = main.getBoundingBoxToWorld();
-                
-                if (cc.rectIntersectsRect(rectChild, rectMain)) {
-                    if(child.monster.getTexture().url === main.getTexture().url) {
-                        this.ate(child);
-                    } else this.lost(child);
-                }
-            });
-        });
-    },
-    ate: function (child) {
-        this.listMonsters.splice(this.listMonsters.indexOf(child), 1);
-        child.removeFromParent();
-        this.spawnChild();
-    },
-    lost: function (child) {
-        this.listMonsters.splice(this.listMonsters.indexOf(child), 1);
-        child.removeFromParent();
-        console.log('lost')
-    },
-    spawnChild: function () {
-        let size = cc.winSize;
-        const childLayer = new ChildLayer();
-        childLayer.setPosition(size.width / 2, size.height + 200);
-        this.addChild(childLayer, 2);
-    
-        let sequence = new cc.Sequence(
-            new cc.MoveTo(3 / Config.childSpeed, size.width / 2, -100),
-            new cc.CallFunc(() => {
-                childLayer.removeFromParent();
-                this.spawnChild();
-            })
-        );
-    
-        childLayer.runAction(sequence);
-    
-        this.listMonsters.push(childLayer);
-    }
 });
