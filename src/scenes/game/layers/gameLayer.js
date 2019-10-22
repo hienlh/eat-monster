@@ -54,9 +54,10 @@ const GameLayer = cc.Layer.extend({
         
         this.spawnTime += dt;
         
-        if (this.spawnTime >= Config.spawnTime) {
+        if ((!this.firstSpawn && this.spawnTime >= Config.spawnTime) || (this.firstSpawn && this.spawnTime >= Config.transitionToGameScreenTime)) {
             this.spawnChild();
             this.spawnTime = 0;
+            this.firstSpawn = false;
         }
         
         this.listMonsters.forEach(child => {

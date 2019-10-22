@@ -7,6 +7,9 @@ const Resources = {
     orange_png: "res/orange.png",
     button_menu_png: "res/buttonMenu.png",
     button_restart_png: "res/buttonRestart.png",
+    button_rate_png: "res/buttonRate.png",
+    button_share_png: "res/buttonShare.png",
+    button_gc_png: "res/buttonGC.png",
     button_2_monsters_png: "res/button2Monsters.png",
     button_4_monsters_png: "res/button4Monsters.png",
 };
