@@ -1,15 +1,23 @@
 cc.game.onStart = function () {
-    if (!cc.sys.isNative && document.getElementById("cocosLoading")) //If referenced loading.js, please remove it
+    const sys = cc.sys;
+    if (!sys.isNative && document.getElementById("cocosLoading")) //If referenced loading.js, please remove it
         document.body.removeChild(document.getElementById("cocosLoading"));
     
     // Pass true to enable retina display, on Android disabled by default to improve performance
-    cc.view.enableRetina(cc.sys.os === cc.sys.OS_IOS);
+    cc.view.enableRetina(sys.os === sys.OS_IOS);
+    
+    // Disable auto full screen on baidu and wechat, you might also want to eliminate sys.BROWSER_TYPE_MOBILE_QQ
+    if (sys.isMobile &&
+        sys.browserType !== sys.BROWSER_TYPE_BAIDU &&
+        sys.browserType !== sys.BROWSER_TYPE_WECHAT) {
+        cc.view.enableAutoFullScreen(true);
+    }
     
     // Adjust viewport meta
     cc.view.adjustViewPort(true);
     
     // Uncomment the following line to set a fixed orientation for your game
-     cc.view.setOrientation(cc.ORIENTATION_PORTRAIT);
+    cc.view.setOrientation(cc.ORIENTATION_PORTRAIT);
     
     // Setup the resolution policy and design resolution size
     cc.view.setDesignResolutionSize(1242, 2208, cc.ResolutionPolicy.EXACT_FIT);

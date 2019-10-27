@@ -1,20 +1,19 @@
 {
-  "showFPS": true,
-  "noCache": false,
-  "frameRate": 60,
   "project_type": "javascript",
   "debugMode": 1,
-  "renderMode": 2,
+  "showFPS": false,
+  "frameRate": 60,
+  "noCache": false,
   "id": "gameCanvas",
-  "engineDir": "frameworks/",
+  "renderMode": 0,
+  "engineDir": "frameworks/cocos2d-html5",
   "modules": [
-    "cocos2d"
+    "cocos2d",
+    "ccui"
   ],
   "jsList": [
-    ".es5/MaxPoint.js",
     ".es5/config.js",
     ".es5/monsterType.js",
-    ".es5/pointManager.js",
     ".es5/prefabs/childMonster.js",
     ".es5/resources.js",
     ".es5/scenes/game/gameScene.js",

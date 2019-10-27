@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/.idea/cocos2d-js-es6.iml" filepath="$PROJECT_DIR$/.idea/cocos2d-js-es6.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/EatMonster.iml" filepath="$PROJECT_DIR$/.idea/EatMonster.iml" />
     </modules>
   </component>
 </project>

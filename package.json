@@ -1,5 +1,5 @@
 {
-  "name": "eat-monstor",
+  "name": "eat-monster",
   "version": "1.0.1",
   "description": "Support ES6/ES7 futures in cocos2d-js with babel.js",
   "scripts": {
