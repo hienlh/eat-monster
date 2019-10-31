@@ -33,14 +33,14 @@ const GameOverScene = cc.Scene.extend({
         this.addChild(bestScore, 1);
         
         const menuButton = new ccui.Button(Resources.button_menu_png);
-        menuButton.addTouchEventListener(() => {
+        menuButton.addClickEventListener(() => {
             cc.director.runScene(new cc.TransitionFade(0.5, new MenuScene()))
         });
         menuButton.setPosition(size.width / 2, size.height / 2);
         this.addChild(menuButton, 3);
         
         const restartButton = new ccui.Button(Resources.button_restart_png);
-        restartButton.addTouchEventListener(() => {
+        restartButton.addClickEventListener(() => {
             cc.director.runScene(new cc.TransitionFade(0.5, new GameScene(this.isHardMode)))
         });
         restartButton.setPosition(size.width / 2, size.height / 2 - 150);

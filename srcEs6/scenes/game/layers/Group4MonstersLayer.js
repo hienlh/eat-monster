@@ -29,18 +29,18 @@ const Group4MonstersLayer = cc.Layer.extend({
         green_monster.setRotation(-90);
         this.addChild(green_monster);
         this.listMonsters.push(green_monster);
+    
+        const mainLayerEventListener = cc.EventListener.create({
+            event: cc.EventListener.TOUCH_ONE_BY_ONE,
+            swallowTouches: false,
+            onTouchBegan: (touch, event) => {
+                const target = event.getCurrentTarget();
+                if (target.getNumberOfRunningActions() <= 0)
+                    target.runAction(new cc.RotateBy(0.1, 90));
+            }
+        });
         
-        cc.eventManager.addListener(mainLayerEventListener.clone(), this);
-    }
-});
-
-const mainLayerEventListener = cc.EventListener.create({
-    event: cc.EventListener.TOUCH_ONE_BY_ONE,
-    swallowTouches: true,
-    onTouchBegan: (touch, event) => {
-        const target = event.getCurrentTarget();
-        if (target.getNumberOfRunningActions() <= 0)
-            target.runAction(new cc.RotateBy(0.1, 90));
+        cc.eventManager.addListener(mainLayerEventListener, this);
     }
 });
 

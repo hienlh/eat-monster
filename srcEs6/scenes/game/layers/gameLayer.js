@@ -7,6 +7,7 @@ const GameLayer = cc.Layer.extend({
     spawnTime: 0,
     listMonsters: [],
     firstSpawn: true,
+    scoreText: null,
     ctor: function (isHardMode, ateCallBack, lostCallback) {
         this._super();
         this._name = "Game Layer";
@@ -41,7 +42,7 @@ const GameLayer = cc.Layer.extend({
         console.log(this.groupMonsterLayer.getName());
         
         const menuButton = new ccui.Button(Resources.button_menu_png);
-        menuButton.addTouchEventListener(() => {
+        menuButton.addClickEventListener(() => {
             cc.director.runScene(new cc.TransitionFade(0.5, new MenuScene()))
         });
         menuButton.setPosition(200, size.height - 150);

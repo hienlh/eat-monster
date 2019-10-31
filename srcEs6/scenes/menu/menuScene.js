@@ -10,21 +10,21 @@ const MenuScene = cc.Scene.extend({
         this.addChild(bg, 0);
         
         const easyButton = new ccui.Button(Resources.button_2_monsters_png);
-        easyButton.addTouchEventListener(() => {
+        easyButton.addClickEventListener(function() {
             cc.director.pushScene(new cc.TransitionFade(Config.transitionToGameScreenTime, new GameScene(false)));
         });
         easyButton.setPosition(size.width / 2, size.height / 2 + 400);
         this.addChild(easyButton, 3);
         
         const hardButton = new ccui.Button(Resources.button_4_monsters_png);
-        hardButton.addTouchEventListener(() => {
+        hardButton.addClickEventListener(function() {
             cc.director.pushScene(new cc.TransitionFade(Config.transitionToGameScreenTime, new GameScene(true)));
         });
         hardButton.setPosition(size.width / 2, size.height / 2 + 250);
         this.addChild(hardButton, 3);
         
         const shareButton = new ccui.Button(Resources.button_share_png);
-        shareButton.addTouchEventListener(() => {
+        shareButton.addClickEventListener(function() {
             console.log('Share');
             if (cc.sys.isMobile) {
                 var shareInfo = {};
@@ -35,20 +35,20 @@ const MenuScene = cc.Scene.extend({
                 shareInfo.platform = sdkbox.SocialPlatform.Platform_Select;
                 sdkbox.PluginShare.nativeShare(shareInfo);
             }
-        }, shareButton);
+        });
         shareButton.setPosition(size.width / 2 - 250, size.height / 2);
         this.addChild(shareButton, 3);
         
         const gcButton = new ccui.Button(Resources.button_gc_png);
-        gcButton.addTouchEventListener(() => {
+        gcButton.addClickEventListener(function(){
         });
         gcButton.setPosition(size.width / 2, size.height / 2);
         this.addChild(gcButton, 3);
         
         const rateButton = new ccui.Button(Resources.button_rate_png);
-        rateButton.addTouchEventListener(() => {
+        rateButton.addClickEventListener(() => {
             cc.sys.openURL('https://github.com/hienlh')
-        }, rateButton);
+        });
         rateButton.setPosition(size.width / 2 + 250, size.height / 2);
         this.addChild(rateButton, 3);
         

@@ -4,6 +4,7 @@ const GameScene = cc.Scene.extend({
     isHardMode: false,
     gameLayer: null,
     point: 0,
+    scoreText: null,
     ctor: function (isHardMode) {
         this._super();
         this.isHardMode = isHardMode || false;
@@ -20,9 +21,16 @@ const GameScene = cc.Scene.extend({
         bg.setContentSize(size.width, size.height);
         this.addChild(bg, 0);
         
-        console.log('Render game layer')
+        console.log('Render game layer');
         this.gameLayer = new GameLayer(this.isHardMode, this.ate.bind(this), this.lost.bind(this));
         this.addChild(this.gameLayer);
+        
+        const scoreText = cc.LabelTTF.create('Score: 0', "Arial", 50);
+        scoreText.setPosition(size.width - 200, size.height - 150);
+        scoreText.setFontFillColor(new cc.Color(0, 0, 0, 250));
+        scoreText.setHorizontalAlignment(cc.TEXT_ALIGNMENT_RIGHT);
+        this.scoreText = scoreText;
+        this.addChild(scoreText, 1);
     },
     ate: function () {
         this.point++;
@@ -37,6 +45,7 @@ const GameScene = cc.Scene.extend({
             cc.sys.localStorage.setItem(maxPointKey, this.point);
         }
         console.log('ate ' + this.point);
+        this.scoreText.setString('Score: ' + this.point);
     },
     lost: function () {
         console.log('lost');
