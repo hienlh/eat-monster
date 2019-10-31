@@ -110,6 +110,27 @@ elseif(APPLE)
     list(APPEND GAME_SOURCE ${cc_common_res})
 endif()
 
+# PluginShare-JS
+
+if(ANDROID)
+
+    list(APPEND GAME_SOURCE ${RUNTIME_SRC_ROOT}/Classes/PluginShareJS.cpp)
+
+    list(APPEND GAME_SOURCE ${RUNTIME_SRC_ROOT}/Classes/PluginShareJSHelper.cpp)
+
+endif()
+# sdkbox-JS
+
+if(ANDROID)
+
+    list(APPEND GAME_SOURCE ${RUNTIME_SRC_ROOT}/Classes/SDKBoxJSHelper.cpp)
+
+endif()
+# PluginFacebook-JS
+if(ANDROID)
+    list(APPEND GAME_SOURCE ${RUNTIME_SRC_ROOT}/Classes/PluginFacebookJS.cpp)
+    list(APPEND GAME_SOURCE ${RUNTIME_SRC_ROOT}/Classes/PluginFacebookJSHelper.cpp)
+endif()
 set(APP_SRC ${GAME_HEADER} ${GAME_SOURCE})
 
 # mark app complie info and libs info
@@ -128,6 +149,24 @@ target_include_directories(${APP_NAME} PRIVATE ${RUNTIME_SRC_ROOT}/Classes)
 
 # mark app resources, resource will be copy auto after mark
 setup_cocos_app_config(${APP_NAME})
+# PluginFacebook
+if(ANDROID)
+    add_definitions(-DSDKBOX_ENABLED)
+    add_subdirectory(${RUNTIME_SRC_ROOT}/proj.android/app/jni/PluginFacebook/)
+    target_link_libraries(${APP_NAME} ext_PluginFacebook)
+endif()
+# PluginShare
+if(ANDROID)
+    add_definitions(-DSDKBOX_ENABLED)
+    add_subdirectory(${RUNTIME_SRC_ROOT}/proj.android/app/jni/PluginShare/)
+    target_link_libraries(${APP_NAME} ext_PluginShare)
+endif()
+# sdkbox
+if(ANDROID)
+    add_definitions(-DSDKBOX_ENABLED)
+    add_subdirectory(${RUNTIME_SRC_ROOT}/proj.android/app/jni/sdkbox/)
+    target_link_libraries(${APP_NAME} ext_sdkbox)
+endif()
 if(APPLE)
     set_target_properties(${APP_NAME} PROPERTIES RESOURCE "${APP_UI_RES}")
     if(MACOSX)

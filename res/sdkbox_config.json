@@ -1,0 +1,26 @@
+{
+    "android": {
+        "Facebook": {
+            "debug": false
+        }, 
+        "Share": {
+            "platforms": {
+                "SMS": {},
+                "Facebook": {}, 
+                "Mail": {}
+            }
+        }
+    }, 
+    "ios": {
+        "Facebook": {
+            "debug": true
+        }, 
+        "Share": {
+            "platforms": {
+                "SMS": {},
+                "Facebook": {}, 
+                "Mail": {}
+            }
+        }
+    }
+}

@@ -1,6 +1,6 @@
 {
   "project_type": "javascript",
-  "debugMode": 1,
+  "debugMode": 0,
   "showFPS": false,
   "frameRate": 60,
   "noCache": false,
@@ -12,16 +12,17 @@
     "ccui"
   ],
   "jsList": [
-    ".es5/config.js",
-    ".es5/monsterType.js",
-    ".es5/prefabs/childMonster.js",
-    ".es5/resources.js",
-    ".es5/scenes/game/gameScene.js",
-    ".es5/scenes/game/layers/Group2MonstersLayer.js",
-    ".es5/scenes/game/layers/Group4MonstersLayer.js",
-    ".es5/scenes/game/layers/childLayer.js",
-    ".es5/scenes/game/layers/gameLayer.js",
-    ".es5/scenes/game/layers/gameOverLayer.js",
-    ".es5/scenes/menu/menuScene.js"
+    "src/config.js",
+    "src/monsterType.js",
+    "src/prefabs/childMonster.js",
+    "src/resources.js",
+    "src/scenes/game/gameScene.js",
+    "src/scenes/game/layers/Group2MonstersLayer.js",
+    "src/scenes/game/layers/Group4MonstersLayer.js",
+    "src/scenes/game/layers/childLayer.js",
+    "src/scenes/game/layers/gameLayer.js",
+    "src/scenes/game/layers/gameOverLayer.js",
+    "src/scenes/gameOver/gameOverScene.js",
+    "src/scenes/menu/menuScene.js"
   ]
 }

@@ -2,7 +2,7 @@ var path = require('path');
 var fs = require('fs');
 
 var fileName = 'project.json';
-var resPath = '.es5';
+var resPath = 'src';
 
 var file = JSON.parse(fs.readFileSync(fileName));
 function getFiles(dir, fileList){

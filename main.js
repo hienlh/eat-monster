@@ -20,10 +20,14 @@ cc.game.onStart = function () {
     cc.view.setOrientation(cc.ORIENTATION_PORTRAIT);
     
     // Setup the resolution policy and design resolution size
-    cc.view.setDesignResolutionSize(1242, 2208, cc.ResolutionPolicy.EXACT_FIT);
+    cc.view.setDesignResolutionSize(1242, 2208, cc.ResolutionPolicy.SHOW_ALL);
     
     // The game will be resized when browser size change
     cc.view.resizeWithBrowserSize(true);
+    
+    if (sys.isMobile) {
+        sdkbox.PluginShare.init();
+    }
     
     //load resources
     cc.LoaderScene.preload(g_resources, function () {
